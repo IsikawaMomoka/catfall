@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: beige;
+}
+
+
+/* 落ち葉を表示するコンテナスタイル　*/
+.cats-container{
+    position: relative; /*相対位置,cats-containerコンテナを基準にねこの要素を配置できる*/
+
+    /*　コンテナの高さと幅　*/
+    height: 100vh;
+    width: 100%;
+
+    /* コンテナからはみ出したものは非表示に */
+    overflow: hidden;
+
+    /*background-image: url('img/back1.jpg');*/
+    /*background-size: cover;*/
+        
+}
+
+
+/* ねこのスタイル */
+/* ３種共通のスタイルをまとめる */
+.cat{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: absolute;
+    /*animation: animate-leaf 8s linear;*/
+    cursor: pointer;
+}
+
+/* ねこ個別スタイル */
+.cat-1{
+    background-image: url('image/cat1.png');
+    animation: animate-cat 10s linear;
+}
+.cat-2{
+    background-image: url('image/cat2.png');
+    animation: animate-cat2 10s linear;
+}
+.cat-3{
+    background-image: url('image/cat3.png');
+    animation: animate-cat3 5s alternate infinite;
+}
+
+/* ねこおちるアニメーション */
+@keyframes animate-cat{
+
+    /* opacityは透明度の設定（フェードイン・アウト）不要であれば消す */
+    0%{
+        opacity: 0;
+        top: 0; /* コンテナの1番上に葉っぱを設置 */
+        transform: rotate(0); /* rotateプロパティで回転 */
+    }
+
+    10%{
+        opacity: 1;
+    }
+
+    90%{
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0;
+        top: 100vh; /* コンテナの1番下に移動させる */
+        transform: rotate(1080deg); /* 1080度回転させる */
+    }
+}
+
+@keyframes animate-cat2{
+    0%{
+        opacity: 0;
+        top: 0;
+        transform: translateX(5px);
+    }
+    10%{
+        opacity: 1;
+        transform: translateX(-5px);
+    }
+    30%{
+        transform: translateX(7px);
+    }
+    50%{
+        transform: translateX(-5px);
+    }
+    70%{
+        transform: translateX(5px);
+    }
+    80%{
+        opacity: 1;
+        transform: translateX(-5px);
+    }
+    100%{
+        opacity: 0;
+        top: 100vh;
+    }
+}
+
+@keyframes animate-cat3{
+    0%{
+        opacity: 0;
+        top: 0;
+        transform: rotate();
+    }
+    30%{
+        opacity: 1;
+    }
+    90%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: rotate(-10deg);
+        top: 100vh;
+    }
+
+}
